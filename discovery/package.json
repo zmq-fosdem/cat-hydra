@@ -1,14 +1,10 @@
 {
-  "name": "cydra-discovery",
+  "name": "bacon-discovery",
   "version": "1.0.0",
-  "description": "",
+  "description": "Discovery of peers based on UDP Bacon",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
-    "ip": "^0.0.0"
-  }
-  "author": "",
-  "license": "ISC"
+    "ip": "^0.3.2"
+  },
+  "license": "MIT"
 }
