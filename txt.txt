@@ -1,0 +1,52 @@
+// Main Application
+var cydra = require('cydra')('WHATEVER IDENTITY NAME');
+
+cydra.start(onPeer);
+
+function onPeer(peer) {
+  peer.on('picPlz', sendPicFn);
+  peer.on('disconnect', disconect);
+}
+----------------------------------------------------------------------------
+
+// Inside Cydra
+
+var discovery = require('nyre');
+var EE = require('events').EventEmitter;
+
+module.exports = Cydra;
+
+function Cydra(identity) {
+  var ee = new EE();
+  var rndServerPort = randomPort();
+
+  var cydraServer = createRouterCydraServer(rndServerPort);
+  discovery.start(rndServerPort, discoveryNewPeer);
+
+  cydraServer.on('message', handleProtocol);
+
+  return {
+    start: start,
+    on: ee.on.bind(ee)
+  };
+
+  function discoveryNewPeer(peerEndpoint) {
+    ee.emit('new peer', peer);
+  }
+
+  fnunction start(handler) {
+    ee.on('new peer', handler);
+  }
+
+  function handleProtocol(envelope, msg) {
+    if(msg === 'picPlz')
+      return ee.emit('picPlz', { send: send });
+
+    console.log('invalid protocol');
+
+    function send(image) {
+      cydraServer.send(envelope, image);
+    }
+  }
+
+}
