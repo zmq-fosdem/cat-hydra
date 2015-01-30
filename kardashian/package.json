@@ -1,0 +1,11 @@
+{
+  "name": "kardashian",
+  "version": "0.5.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bacon-discovery": "^1.0.0"
+  }
+}
