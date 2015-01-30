@@ -21,7 +21,7 @@ function Cydra(identity) {
   var rndServerPort = randomPort();
 
   var cydraServer = createRouterCydraServer(rndServerPort);
-  discovery.start(rndServerPort, discoveryNewPeer);
+  discovery.start(discoveryNewPeer);
 
   cydraServer.on('message', handleProtocol);
 
